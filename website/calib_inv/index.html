@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Object Classification through Scattering Media with Deep Learning on Time Resolved Measurement</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Nav -->
+
+
+
+		<!-- home -->
+			<div class="wrapper style2">
+				<article class="container" id="home">
+
+				<div class="row">
+
+					<div id="headerIconDiv">
+						<a href="http://cameraculture.media.mit.edu" target="_blank"><img class="mlIcons" src="CameraCulture_Logo_R_RGB1.jpg" height="100"/></a>
+						<a href="http://media.mit.edu" target="_blank"><img class="mlIcons" src="MIT_ML_Logo_R_RGB1.jpg" height="100"/></a>
+					</div>
+
+					<header>
+						<h1>Calibration Invariant Imaging</h1>
+						<h2>Object Classification through Scattering Media<br>with Deep Learning</h2>
+						<h3><a href="http://media.mit.edu/~guysatat/" target="_blank">Guy Satat</a>,
+							<a href="http://www.matthewtancik.com" target="_blank">Matthew Tancik</a>,
+							<a href="http://otkrist.github.io/" target="_blank">Otkrist Gupta</a>,
+							<a href="http://web.media.mit.edu/~barmak/" target="_blank">Barmak Heshmat</a>,
+							<a href="http://media.mit.edu/~raskar/" target="_blank">Ramesh Raskar</a></h3>
+					</header>
+					<p>
+						<b>A method for classifying objects hidden behind a scattering layer with a neural network. Training on synthetic data with variations in calibration parameters allows the network to learn a model that doesn't require calibration during lab experiments.</b> <br>
+						Traditional techniques to see through scattering media rely on a physical model that needs to be precisely calibrated. Computationally overcoming the scattering relies heavily on accurately calibrated physical models. Thus, such systems are extremely sensitive to an precise and lengthy calibration process. <br>
+						In this work we overcome this bottleneck by utilizing neural networks and their ability to learn models that are invariant to data transformation. In our case, the transformations are variations in the imaging system calibration parameters. To that end, we create a synthetic dataset that contains variations in all calibration parameters (we use a Monte Carlo forward model to render the measurements). The system is then tested on actual lab experiments without specific calibration or tuning.
+					</p>
+					<div id="center_img">
+						<img src="graphics/recon.gif" width="670px" height=auto>
+						<div id="scaleVid">
+							<div class="videoWrapper">
+								<iframe width="560" height="315" src="https://www.youtube.com/embed/GZyN3fWQVu0" frameborder="0" allowfullscreen></iframe>
+							</div>
+						</div>
+					</div>
+
+					<p>
+						<u><b>Overview:</b></u>
+						<br>
+						The suggested imaging framework is introduced below:<br>
+					</p>
+					<div id="center_img">
+						<img src="graphics/overview.jpg" width="860" height=auto>
+					</div>
+					<p>
+						The first step is an offline process in which we render the synthetic dataset with a Monte Carlo based renderer and train the neural network.<br>
+						The second step is the online imaging process. In this case we classify the pose of a mannequin hidden behind a paper sheet. The paper is illuminated by a pulsed laser, and a SPAD (Single Photon Avalanche Diode) camera captures a time resolved measurement of the reflected light. The data is fed into the neural network and the pose is classified.
+					</p>
+
+					<p>
+						<u><b>Results:</b></u>
+						<br>
+
+						<br>
+					</p>
+					<div id="center_img">
+						<img src="graphics/results.jpg" width="660" height=auto><br>
+						a) The three different poses and examples of the corresponding time resolved measurements. <br>
+						b) The corresponding confusion matrix. The three poses are classified with 76.6% accuracy (compared to 33.3% random accuracy).
+					</div>
+
+
+
+					<p>
+						<u><b>Paper Citation:</b></u><br>
+						&#8226; <a href="https://www.osapublishing.org/oe/abstract.cfm?uri=oe-25-15-17466" target="_blank">G. Satat, M. Tancik, O. Gupta, B. Heshmat and R. Raskar, "Object Classification through Scattering Media with Deep Learning on Time Resolved Measurement"</a>, <i>Optics Express</i> Vol. 25, 17466-17479 (2017).<br>
+						&#8226; <a href="https://doi.org/10.1364/OE.25.017466" target="_blank" style="text-decoration: none"> doi: 10.1364/OE.25.017466.</a><br>
+						&#8226; <a href="ObjectClassificationthroughScatteringMediawithDeepLearningonTimeResolvedMeasurement_local.pdf" target="_blank"> Local copy</a>
+					</p>
+
+
+
+
+
+					<p>
+						<u><b>Camera Culture Related Works :</b></u><br>
+						&#8226; <a href="http://web.media.mit.edu/~guysatat/singlepixel" target="_blank" style="text-decoration: none"> G. Satat, M. Tancik and R. Raskar, "Lensless Imaging with Compressive Ultrafast Sensing", <i>IEEE Trans. Computational Imaging</i>, (2017).</a><br>
+
+						&#8226; <a href="http://web.media.mit.edu/~guysatat/API/project_all_photon.html" target="_blank" style="text-decoration: none">G. Satat, B. Heshmat, D. Raviv and R. Raskar,  “All Photons Imaging Through Volumetric Scattering”, <i>Nature Scientific Reports</i>, Vol. 6, 33946, (2016).</a><br>
+
+						&#8226; <a href="http://web.media.mit.edu/~barmak/THz%20Book.html" target="_blank" style="text-decoration: none">A. R. Sanchez, B. Heshmat, A. Aghasi, M. Zhang, S. Naqvi, J. Romberg, R. Raskar, “Terahertz time-gated spectroscopic imaging for content extraction through layered structures,” <i>Nature Communications</i>, Vol. 7, 12665, (2016).</a><br>
+
+						&#8226; <a href="http://web.media.mit.edu/~barmak/Brush%20Project.html" target="_blank" style="text-decoration: none">B. Heshmat, I. H. Lee, R. Raskar, "Optical brush: Imaging through permuted probes," Nature Scientific Reports, Vol. 6, 20217, (2016).</a><br>
+
+						&#8226; <a href="http://web.mit.edu/naik/www/assets/pdf/satat_etal_ultrafast_survey_16.pdf" target="_blank" style="text-decoration: none">G. Satat, B. Heshmat, N. Naik, A. R. Sanchez and R. Raskar, "Advances in ultrafast optics and imaging applications," in <i>SPIE 2016</i> (invited).</a><br>
+
+						&#8226; <a href="http://web.media.mit.edu/~guysatat/fl/Fluorescent/Locating%20and%20classifying%20fluorescent%20tags%20behind%20turbid%20layers%20using%20time-resolved%20inversion.pdf" target="_blank" style="text-decoration: none">G. Satat, B. Heshmat, C. Barsi, D. Raviv, O. Chen, M.G. Bawendi and R. Raskar,  “Locating and Classifying Fluorescent Tags Behind Turbid Layers Non-Invasively Using Sparsity-Based Time-Resolved Inversion,” <i>Nature Communications</i>, Vol. 6, 6796 (2015).</a><br>
+
+						&#8226; <a href="http://extremelight.eps.hw.ac.uk/publications/NC-photon-flight-Gariepy(2015).pdf" target="_blank" style="text-decoration: none">G. Gariepy, et al., "Single-photon sensitive light-in-fight imaging," <i>Nature Communications</i>, Vol. 6, 6021 (2015).</a><br>
+
+						&#8226; <a href="https://www.osapublishing.org/abstract.cfm?uri=cleo_si-2014-STu3E.7" target="_blank" style="text-decoration: none">B. Heshmat, G. Satat, C. Barsi, and R. Raskar, "Single-Shot Ultrafast Imaging Using Parallax-Free Alignment with a Tilted Lenslet Array," in <i>CLEO: 2014</i> (oral).</a><br>
+
+						&#8226; <a href="http://web.media.mit.edu/~raskar/femto/papers/3d/3DShapeAroundCornerRaskar2011.pdf" target="_blank" style="text-decoration: none">A. Velten, et al., "Recovering three-dimensional shape around a corner using ultrafast time-of-flight imaging," <i>Nature communications</i>, Vol. 3, 745 (2012).</a><br>
+
+						&#8226; <a href="https://www.osapublishing.org/oe/abstract.cfm?uri=oe-20-17-19096" target="_blank" style="text-decoration: none">O. Gupta, et al., "Reconstruction of hidden 3D shapes using diffuse reflections," <i>Optics Express</i>, Vol. 20 (2012).</a><br>
+
+					  &#8226; <a href="https://www.researchgate.net/profile/Andreas_Velten/publication/220721073_Slow_art_with_a_trillion_frames_per_second_camera/links/0912f50f02fb790150000000.pdf" target="_blank" style="text-decoration: none">A. Velten, et al., "Slow art with a trillion frames per second camera," <i>ACM SIGGRAPH 2011 Talks</i> ACM, (2011).</a><br>
+
+						&#8226; <a href="https://dspace.mit.edu/handle/1721.1/67888" target="_blank" style="text-decoration: none">R. Raskar, and D. James, "5d time-light transport matrix: What can we reason about scene properties," <i>Int. Memo</i> 7 (2008).</a><br>
+
+						&#8226; <a href="http://web.mit.edu/naik/www/assets/pdf/naik_sigasia_11.pdf" target="_blank" style="text-decoration: none">N. Naik, et al., "Single view reflectance capture using multiplexed scattering and time-of-flight imaging," <i>ACM Transactions on Graphics (ToG)</i>, Vol. 30. No. 6. ACM, (2011).</a><br>
+					</p>
+
+					<span style="margin-bottom: 0"><p><u><b>Related Talks:</b></u></p><span>
+
+					<div id="center_img">
+						<table width="700" border="0" id="relatedTable">
+							<tr>
+							  <td width="317"><span style="margin: 30px 0 0 0;"> X-ray vision without X-rays</span></td>
+							  <td width="317"><span style="margin: 30px 0 0 0;"> The future of imaging</span></td>
+							  <td width="356"><span style="margin: 15px 0 0 0;">Imaging at trillion frames per second</span></td>
+							</tr>
+							<tr>
+								<td><span style="margin: 15px 0 0 0;"><a href="https://www.youtube.com/watch?v=IJ2cMqQOOHM" target="_blank"><img src="xrayvision.png" alt="l" width="281" height="170"></a></span></td>
+
+							  <td><span style="margin: 15px 0 0 0;"><a href="https://www.youtube.com/watch?v=3h7gq-xuXLA" target="_blank"><img src="future_of_imaging.png" alt="l" width="281" height="170"></a></span></td>
+							  <td><span style="margin: 15px 0 0 0;"><a href="http://www.ted.com/talks/ramesh_raskar_a_camera_that_takes_one_trillion_frames_per_second?language=en" target="_blank"><img src="imaging-at-trillion-frames-per-second.jpg" alt="l" width="286" height="170"></a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</article>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<!--
+	Fractal by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Guy Satat</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	</head>
+	<body id="top">
+
+		<section id="text" class="wrapper">
+				<nav id="nav">
+					<ul class="container">
+						<li><a href="index.html#Top">Home</a></li>
+						<li><a href="index.html#News">News</a></li>
+						<li><a href="index.html#Projects">Projects</a></li>
+						<li><a href="index.html#About">About Me</a></li>
+						<li><a href="index.html#Publications">Publications</a></li>
+						<li><a href="index.html#Contact">Contact</a></li>
+					</ul>
+				</nav>
+		</section>
+
+		<section id="text" class="wrapper">
+			<header class="major">
+				<h2>Memristors</h2>
+			</header>
+			<header class="major">
+				<h4>Guy Satat, Nimrod Wald, and Shahar Kvatinsky</h4>
+			</header>
+			<div class="inner">
+				<section>
+							<p>
+								<span class="image right">
+									<img src="images/memristor2.jpg" alt=""/>
+								</span>
+									Memristors are the fourth elementary passive electric component (apart from resistor, capacitor and inductor). They were predicted in 1971 by Chua, and experimentally demonstrated in 2008 by HP labs. The main property of Memristors is that they change their resistance as function of amount and direction of charge passing through them, and the resistance is non-volatile (see the Wikipedia article <a href="http://en.wikipedia.org/wiki/Memristor">here)</a>.<br />
+									During my undergraduate studies I worked on two research projects related to Memristors.
+								</p>
+								<h3>Logic with Memristors:</h3><p>
+									Memristors are usually considered memory elements (due to their non-volatile varying resistance). In this work we explored ways to implement logic circuits with Memristors. We explored different ways to implement logic using IMPLY gates and MRL gates, and suggested a new method called MAGIC. As part of our work we implemented 8-bit full adder with each method and analyzed the trade-offs in terms of performance, complexity, power, area, CMOS compatibility and more.
+								</p>
+								<h3>Multi-threaded Switch on Event CPU architecture with Memristors:</h3><p>
+									In this project we used Verilog to implement a new architecture that uses Memristors in order to speed up multi-threaded processes. One challenge in multi-threaded machines is to decide which thread should run and when, in order to maximize the utilization of the CPU pipeline. A known approach to this problem is called Switch on Event (SoE), where a thread is replaced whenever it gets stuck (an event) – usually a long call for memory (such as cache miss) or long floating point calculation; then the stuck instruction continues to run but frees the main pipeline for a different thread. During this operation the pipeline is flushed, since there are not enough registers to store the status of all threads in all pipeline stages. This is exactly what we wanted to change. Memristors can be implemented as memory cells on top of the CPU (higher metal layers), so that they provide near large memory. In our work we defined a micro-architecture that implements SoE with registers for each stage in the pipeline and for each thread (the registers for the non-active threads are implemented as Memristors). We implemented this micro-architecture in Verilog and evaluated the speedup.
+								</p>
+
+
+								<h3>Paper citations:</h3>
+								<ul>
+									<li><a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6895258" target="_blank">
+										S. Kvatinsky. D. Belousov, S. Liman, G. Satat, N. Wald, E.G. Friedman, A. Kolodny, U.C. Weiser, "MAGIC – Memristor Aided LoGIC," <i>IEEE Transactions on Circuits and Systems II: Express Briefs</i>, Vol. 61, 1-5 (2014).
+									</a></li>
+
+									<li><a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6617731" target="_blank">
+										S. Kvatinsky, G. Satat, N. Wald, E. G. Friedman, A. Kolodny, and U. C. Weiser, "Memristor-based Material Implication (IMPLY) Logic:
+									Design Principles and Methodologies," <i>IEEE Transactions on Very Large Scale Integration (VLSI)</i>, Vol. 22, 2054-2066 (2014).
+									</a></li>
+
+									<li><a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6331426&tag=1" target="_blank">
+										S. Kvatinsky, N. Wald, G. Satat, A. Kolodny, U. C. Weiser and E. G. Friedman, "MRL - Memristor Ratioed Logic,"
+									<i>Proceedings of the International Cellular Nanoscale Networks and their Applications</i> 2012.
+									</a></li>
+								</ul>
+
+
+				</section>
+			</div>
+		</section>
+
+			<footer id="footer">
+				<p class="copyright">&copy; Guy Satat 2017. All rights reserved.  |   Design: <a href="http://html5up.net">HTML5 UP</a></p>
+			</footer>
+
+			<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+			</body>
+			</html>

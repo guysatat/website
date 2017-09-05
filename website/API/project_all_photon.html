@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>All Photon Imaging</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+	</head>
+	<body>
+
+
+
+		<!-- home -->
+			<div class="wrapper style2">
+				<article class="container" id="home">
+
+				<div class="row">
+
+				<div style="float:right;">
+					<a href="http://cameraculture.media.mit.edu" target="_blank"><img style="float: right; margin: 0px 0px 15px 15px;" src="CameraCulture_Logo_R_RGB1.jpg" height="100"/></a>
+					<a href="http://media.mit.edu" target="_blank"><img style="float: right; margin: 0px 0px 15px 15px;" src="MIT_ML_Logo_R_RGB1.jpg" height="100"/></a>
+				</div>
+
+							<header>
+								<h1>How to See Through Tissue</h1>
+								<h2>All Photons Imaging Through Volumetric Scattering</h2>
+								<h3><a href="http://media.mit.edu/~guysatat/" target="_blank">Guy Satat</a>, <a href="http://media.mit.edu/~barmak/" target="_blank">Barmak Heshmat</a>, <a href="http://media.mit.edu/~darav/" target="_blank">Dan Raviv</a>, <a href="http://media.mit.edu/~raskar/" target="_blank">Ramesh Raskar</a></h3>
+							</header>
+							<p>
+							** News ** <br>
+							New result demonstrating seeing through layered structures presented in COSI. <a href="AllPhotonsImagingThroughThickLayeredScatteringMaterials.pdf">Paper</a><br>
+							<p>
+							We demonstrate a new method that enables us to see deeper and better through tissue with near-infrared wavelengths. Other methods like x-ray and ultrasound provide less information about the type of materials they interact with. In the near-visible part of the electromagnetic spectrum there is a lot of interaction between light and matter. This interaction provides a lot of information (for example, it may allow to distinguish between oxygenated and deoxygenated blood). However, it results in significant scattering, which is why we can't simply see into things as clearly as with x-ray. The main application of our work is in medical imaging. Featured by <a href="http://news.mit.edu/2016/all-photons-imaging-algorithm-0929" target="_blank">MIT News</a>. Talk at <a href="https://www.youtube.com/watch?v=IJ2cMqQOOHM">TEDx Beacon Street</a>.<br><br>
+							<img src="API/overview.JPG" width="350" height="161" alt="Guy Satat">
+							<img src="API/overview.gif" width="288" height="161" alt="l">
+							<br><b>Hidden object behind 1.5cm thick tissue phantom is successfully recovered.</b></p><br>
+							<p>The main challenge in imaging through tissue with near infrared wavelengths is optical scattering. Our method, All Photons Imaging (API), uses the entire optical signal in a time resolved measurement and novel signal processing to allow seeing through objects. We demonstrate this by recovering shapes hidden behind 1.5cm thick tissue phantom with 5.9mm spatial resolution. This is a two-fold improvement compared to other time based methods and 4dB improvement in PSNR (peak signal to noise ratio). Our method is all optical, wide field and calibration free. Future applications include medical imaging and non-invasive and remote sensing, for example seeing through fog and evaluating food. <br>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/5bYRt9ZIxWs" frameborder="0" allowfullscreen></iframe><br>
+							Other methods to overcome scattering in the near-visible range include for example photo-acoustic, and acousto-optic techniques both require complicated coupling between ultrasound and optical hardware, while our method is all optical. Another technique is known as phase-conjugation which uses only coherent photons, and is limited to thin materials, our methods uses all photons and does not depend on coherency. Diffuse optical tomography is another technique, but it's limited to raster scanning of the target which results in long acquisition time, our method doesn't have that limitation and can work in a "single-shot".</p>
+
+							<p>
+							<u><b>Overview:</u></b><br>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/3FaZtn1006Q" frameborder="0" allowfullscreen></iframe>
+							<br>
+							We use a streak camera for time-resolved measurement of the scene and pulsed laser (Ti:Sapph) for illumination. The measurement provides a dense spatio-temporal profile of the photons that are emitted from the tissue phantom. API uses this spatio-temporal profile to decode (invert) the scattering and recover the target.<br>
+							<img src="API/Figure_1.JPG" width="1000" height="585" alt="Guy Satat">
+							</p>
+
+
+							<p>
+							<u><b>How to overcome scattering:</b></u>
+							<br>
+							This video explains how time-resolved measurement help to overcome scattering:<br>
+							<img src="API/time_resolved.gif" width="960" height="240" alt="l"><br>
+							As light propagates through the medium it interacts with it. The majority of photons will scatter a lot (diffused photons). Some will scatter just a little (snake photons), and a few photons don't scatter at all, those are ballistic photons.<br>
+							API uses all these photons simultaneously. The first step is estimating the physical process that explains the scattering (different materials will cause different scattering). The second step recovers the target based on the measurement and the estimated physical model. This makes our method calibration free as there is no need for extra measurements of the medium. <br>
+							When we look at the time-resolved measurement, each frame in the movie contains a different distorted version of the target. Each frame shows information from photons that traveled a different path-length in the medium.
+							</p>
+
+							<p>
+							<!--<u><b>Results:</b></u>
+							<br>-->
+							By comparing API to two other approaches the superiority of the method is established. The first is time-averaged, which doesn't use any time-resolved information (it's equivalent to a measurement with a regular camera), and the result is extremely blurry. The second uses just the ballistic photons. Since there are very few ballistic photons, this result is very noisy and somewhat blurry. <br>
+							We quantitatively evaluate the results with two metrics: 1) PSNR (peak signal to noise ratio) measures how each pixel in the reconstruction is different from the actual target (higher PSNR is better). 2) SSIM (structural similarity) measures how similar the reconstruction and target are including spatial information (so it's not just a point-by-point comparison). SSIM ranges between 0 and 1, higher is better.<br>
+							<img src="API/Figure_4.JPG" width="1000" height="563" alt="Guy Satat"><br>
+							<!--The figure below shows a cross section of a target composed of three slits. The slits are separated by 15, 10 and 5 mm. We note that using a time-averaged approach is not able to recover the individual slits. The reconstruction using ballistic photons is too noisy, and we are not able to distinguish the slits from the noise. API is able to recover the slits if they are separated by more than 5mm.<br>
+							<img src="API/Figure_3.JPG" width="1000" height="563" alt="Guy Satat"><br>-->
+							</p>
+
+
+							<p>
+							<u><b>Paper Citation:</b></u><br>
+							G. Satat, B. Heshmat, D. Raviv and R. Raskar, "All Photons Imaging Through Volumetric Scattering", <i>Nature Scientific Reports</i>, 6:33946, (2016). <br>
+							doi: 10.1038/srep33946. <a href="http://www.nature.com/articles/srep33946" target="_blank">Link</a>.<br><br>
+							Local copy <a href="AllPhotonsImagingThroughVolumetricScattering.pdf">pdf</a>.<br>
+							Local copy <a href="SuppAllPhotonsImagingThroughVolumetricScattering.pdf">supplement pdf</a>.<br>
+							Local copy <a href="Supp_Video_1_A_movie.mp4">supplement video 1</a>.<br>
+							Local copy <a href="Supp_Video_2_Wedge_movie.mp4">supplement video 2</a>.<br><br>
+
+							G. Satat, B. Heshmat and R. Raskar, "All Photons Imaging Through Thick Layered Scattering Materials", <i>Imaging and Applied Optics</i>, (2017). <br>
+							Local copy <a href="AllPhotonsImagingThroughThickLayeredScatteringMaterials.pdf">pdf</a><br>
+
+							</p>
+
+							<p>
+							<u><b>Media Coverage:</b></u><br>
+							&#8226 <a href="http://news.mit.edu/2016/all-photons-imaging-algorithm-0929" target="_blank">MIT News</a><br>
+							&#8226 <a href="http://optics.org/vision/2016/9" target="_blank">Optics.org - Vision Focus (Oct/Nov 2016)</a><br>
+							&#8226 <a href="https://www.yahoo.com/tech/light-measuring-algorithm-could-improve-215320510.html" target="_blank">Yahoo Tech - Digital Trends</a><br>
+							&#8226 <a href="http://phys.org/news/2016-09-algorithm-enable-visible-light-based-imaging-medical.html" target="_blank">Phys.org</a><br>
+							&#8226 <a href="http://www.scientificcomputing.com/news/2016/10/algorithm-could-enable-visible-light-based-imaging-medical-devices-autonomous-vehicles" target="_blank">Scientific Computing</a><br>
+							&#8226 <a href="http://www.azooptics.com/News.aspx?newsID=22987" target="_blank">Azooptics.com</a><br>
+							&#8226 <a href="http://www.technology.org/2016/09/30/algorithm-enable-visible-light-based-imaging-medical-devices-autonomous-vehicles/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+TechnologyOrg+%28Technology+Org+-+All+News%29" target="_blank">Technology.org</a><br>
+							&#8226 <a href="https://www.mdtmag.com/article/2016/10/algorithm-could-enable-visible-light-based-imaging-medical-devices-autonomous-vehicles" target="_blank">Medical Design Technology</a><br>
+
+
+
+
+							</p>
+
+							<p>
+							<u><b>FAQ:</b></u>
+							<br><b>What's so special about visible and near infrared wavelength? Why not use x-ray or ultrasound to see into objects?</b><br>
+							The visible and near-visible parts of the electromagnetic spectrum are where light and matter interact in the most substential way. As a result, measurement in that spectrum can diffrentiate among different materials. While x-ray and ultrasound have great penetration capabilities, they provide less information to enable material classification.
+
+
+
+							<br><br><b>What are the potential applications?</b><br>
+							The main application is medical imaging. Specifically, it can potentially be used in localization and identification of abnormal regions like tomurs, and brain studies. Other applications include seeing through fog and evaluating food.
+
+							<br><br><b>What are the main advantages of this method?</b><br>
+							1) It allows seeing through a thick scattering medium using infrared wavelength by overcoming the inherent scattering.<br>
+							2) It is calibration free, meaning there is no need to characterize the material before imaging through it.<br>
+							3) Part of the algorithm outputs is a characterization of the medium physical properties.<br>
+							4) It can handle materials with non-homogeneous variations in the depth axis (like layered tissue). <br>
+							5) It doesn't require raster scanning (can work in single-shot).
+
+
+							<br><br><b>How exactly does the time-resolved measurement help?</b><br>
+							Each frame in our time-resolved measurement movie captures information about photons that went through more and more scattering (since they scatter more, they travel longer distances in the medium, so they arrive later to the sensor). Each frame thus provides a different distorted version of the target. Our algorithm uses that physical interpretation and estimates both the physical properties of the medium and the hidden object.
+
+							<br><br><b>What is scattering?</b><br>
+							Scattering is a physical process in which a photon interacts with a material and as a result changes its direction. An example is a milky glass, photons that go into the glass come out in random directions, and as a result we can't see through the glass, although all the photons that went into the glass came out on the other side.
+
+							<br><br><b>What is a streak camera?</b><br>
+							A streak camera is a device that captures time information along a line in space (each column corresponds to a different location along the line, and each row corresponds to a different time). When a light pulse enters the instrument through a narrow slit along one direction, it is deflected in the perpendicular direction, so that the photons that arrive first hit the detector at a different position compared to photons that arrive later. The resulting image forms a “streak” of light. Streak tubes are often used in chemistry or biology to observe millimeter-sized objects.
+
+							<br><br><b>Are there any other options for time-resolved measurement?</b><br>
+							In this project we used a streak camera. However, there are other sensors that provide similar time-sensitivity. For example, SPAD (single photon avalanche photodiode) array provides both great time resolution as well as single photon sensitivity.
+
+							<br><br><b>What is the cost of the system?</b><br>
+							Our current implementation uses a streak camera which is costly device. Future implementations will use a SPAD (see above), which is much more affordable, and will be even less expensive as it becomes more widespread.
+
+							<br><br><b>What are the current limitations?</b><br>
+							The main limitation is working in optical transmission mode (we illuminate the target from one side and measure from the other), this is relevant for applications like mammography. We plan to extend this work to more general cases in reflection mode.
+
+							<br><br><b>How is this work related to previous works from Camera Culture Group?</b><br>
+							This work builds upon previous work we did with the streak camera, starting from  <a href="http://www.nature.com/ncomms/journal/v3/n3/abs/ncomms1747.html" target="_blank">looking around the corner</a>. And followed by seeing through thin scattering layers to estimate <a href="https://www.osapublishing.org/abstract.cfm?uri=josaa-31-5-957" target="_blank">albedo</a> and <a href="http://www.nature.com/ncomms/journal/v3/n3/abs/ncomms1747.html" target="_blank">fluorescence lifetime</a>. This is our first work with thick volumetric materials.<br>
+							Recently, our group also published a work on <a href="http://www.nature.com/ncomms/2016/160909/ncomms12665/full/ncomms12665.html" target="_blank">reading through a closed book</a>. This was accomplished with the THz part of the spectrum which has interesting penetration properties, but might be limited in medical imaging applications. Reading through a book is also a discrete problem (due to the discrete number of pages, as opposed to the continuous nature of volumetric scattering which is dealt with in this work).<br>
+
+
+
+							<br>
+							</p>
+
+
+							<p>
+							<u><b>Camera Culture Related Works :</b></u><br>
+							&#8226 G. Satat, B. Heshmat, C. Barsi, D. Raviv, O. Chen, M.G. Bawendi and R. Raskar,  “Locating and Classifying Fluorescent Tags
+								Behind Turbid Layers Non-Invasively Using Sparsity-Based Time-Resolved Inversion,” <i>Nature Communications</i>, 6, 6796 (2015).
+								<a href="http://www.nature.com/ncomms/2015/150413/ncomms7796/full/ncomms7796.html" target="_blank">link</a><br>
+
+							&#8226 A. R. Sanchez, B. Heshmat, A. Aghasi, M. Zhang, S. Naqvi, J. Romberg, R. Raskar, “Terahertz time-gated spectroscopic imaging for content extraction through layered structures,” <i>Nature Communications</i>, 7, 12665, (2016). <a href="http://www.nature.com/ncomms/2016/160909/ncomms12665/full/ncomms12665.html" target="_blank">link</a><br>
+
+							&#8226 B. Heshmat, I. H. Lee, R. Raskar, "Optical brush: Imaging through permuted probes," Nature Scientific Reports, Vol. 6, 20217, (2016) <a href="http://www.nature.com/articles/srep20217">link</a><br>
+
+							&#8226 G. Satat, B. Heshmat, N. Naik, A. R. Sanchez and R. Raskar, "Advances in ultrafast optics and imaging applications," in <i>SPIE 2016</i> (invited).
+							<a href="http://proceedings.spiedigitallibrary.org/proceeding.aspx?articleid=2523971" target="_blank">link</a><br>
+
+							&#8226 B. Heshmat, G. Satat, C. Barsi, and R. Raskar, "Single-Shot Ultrafast Imaging Using Parallax-Free Alignment with a Tilted Lenslet Array," in <i>CLEO: 2014</i> (oral). <a href="https://www.osapublishing.org/abstract.cfm?uri=cleo_si-2014-STu3E.7" target="_blank">link</a><br>
+
+							&#8226 G. Gariepy, et al., "Single-photon sensitive light-in-fight imaging," <i>Nature Communications</i>, 6, 6021 (2015). <a href="http://www.nature.com/ncomms/2015/150127/ncomms7021/full/ncomms7021.html" target="_blank">link</a><br>
+
+							&#8226 A. Kadambi, et al., "Coded time of flight cameras: sparse deconvolution to address multipath interference and recover time profiles," ACM Transactions on Graphics 32, 1–10 (2013). <a href="http://dl.acm.org/citation.cfm?id=2508428" target="_blank">link</a><br>
+
+							&#8226 N. Naik, et al., "Estimating wide-angle, spatially varying reflectance using timeresolved inversion of backscattered light," JOSA A 31, 957–963 (2014). <a href="https://www.osapublishing.org/abstract.cfm?uri=josaa-31-5-957" target="_blank">link</a><br>
+
+							&#8226 A. Velten et al., "Recovering three-dimensional shape around a corner using ultrafast time-of-flight imaging," <i>Nature Communications</i>, 3, 745 (2012). <a href="http://www.nature.com/ncomms/journal/v3/n3/abs/ncomms1747.html" target="_blank">link</a><br>
+
+
+							</p>
+							<p>
+							<u><b>Related Talks:</b></u><br>
+
+							<table width="700" border="0">
+								<tr>
+								  <td width="317"><span style="margin: 30px 0 0 0; font-size: 1.4em;"> Xray vision without Xrays</span></td>
+								  <td width="317"><span style="margin: 30px 0 0 0; font-size: 1.4em;"> The future of imaging</span></td>
+								  <td width="356"><span style="margin: 15px 0 0 0; font-size: 1.4em;">Imaging at trillion frames per second</span></td>
+								</tr>
+								<tr>
+									<td><span style="margin: 15px 0 0 0;"><a href="https://www.youtube.com/watch?v=IJ2cMqQOOHM"><img src="API/xrayvision.png" alt="l" width="281" height="170"></a></span></td>
+
+								  <td><span style="margin: 15px 0 0 0;"><a href="https://www.youtube.com/watch?v=3h7gq-xuXLA"><img src="API/future_of_imaging.png" alt="l" width="281" height="170"></a></span></td>
+								  <td><span style="margin: 15px 0 0 0;"><a href="https://www.youtube.com/watch?v=qXDBCAU6Y4Q"></a></span><a href="http://www.ted.com/talks/ramesh_raskar_a_camera_that_takes_one_trillion_frames_per_second?language=en"><img src="API/imaging-at-trillion-frames-per-second.jpg" alt="l" width="286" height="170"></a></td>
+								</tr>
+							</table>
+
+
+
+							</p>
+
+
+					</div>
+				</article>
+			</div>
+	</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Lensless Imaging with Compressive Ultrafast Sensing</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Nav -->
+
+
+
+		<!-- home -->
+			<div class="wrapper style2">
+				<article class="container" id="home">
+
+				<div class="row">
+
+					<div id="headerIconDiv">
+						<a href="http://cameraculture.media.mit.edu" target="_blank"><img class="mlIcons" src="CameraCulture_Logo_R_RGB1.jpg" height="100"/></a>
+						<a href="http://media.mit.edu" target="_blank"><img class="mlIcons" src="MIT_ML_Logo_R_RGB1.jpg" height="100"/></a>
+					</div>
+
+					<header>
+						<h1>Efficient lensless imaging with a femto-pixel</h1>
+						<h2>Lensless Imaging with Compressive Ultrafast Sensing</h2>
+						<h3><a href="http://media.mit.edu/~guysatat/" target="_blank">Guy Satat</a>, <a href="http://www.matthewtancik.com" target="_blank">Matthew Tancik</a>, <a href="http://media.mit.edu/~raskar/" target="_blank">Ramesh Raskar</a></h3>
+					</header>
+					<p>
+						<b>A time-of-flight based lensless compressive imaging technique that captures scene reflectance with significantly less compressive patterns compared to previous works.</b> <br>
+						Traditional cameras require a lens and a mega-pixel sensor to capture images. The lens focuses light from the scene onto the sensor. We demonstrate a new imaging method that is lensless and requires only a single pixel for imaging. Compared to previous single pixel cameras our system allows significantly faster and more efficient acquisition. This is achieved by using ultrafast time-resolved measurement with <a href="#FAQ">compressive sensing</a>. The time-resolved sensing adds information to the measurement, thus fewer measurements are needed and the acquisition is faster. Lensless and single pixel imaging computationally resolves major constraints in imaging systems design. Notable applications include imaging in challenging parts of the spectrum (like infrared and THz), and in challenging environments where using a lens is problematic.<br>
+						Featured on <a href="http://news.mit.edu/2017/faster-single-pixel-camera-lensless-imaging-0330" target="_blank">MIT News</a>.<br>
+					</p>
+					<div id="center_img">
+						<img src="graphics/animated_results_2.gif" width="670px" height=auto>
+						<div id="scaleVid">
+							<div class="videoWrapper">
+								<iframe width="560" height="315" src="https://www.youtube.com/embed/hhBXFlT-N5s" frameborder="0" allowfullscreen></iframe>
+							</div>
+						</div>
+					</div>
+
+					<p>
+						<u><b>Overview:</b></u>
+						<br>
+						The suggested imaging framework is introduced below:<br>
+					</p>
+					<div id="center_img">
+						<img src="overview.jpg" width="560" height=auto>
+					</div>
+					<p>
+						The scene is illuminated with a pulse of light that is modulated with a mask. The light that is reflected from the scene is measured by a single (or a few) sensors. The sensors are time sensitive so each sensor produces a time series. Regular single pixel cameras don't use time-resolved measurements, and requires many masks to recover the scene. This is demonstrated by the animation above; on the left we see the acquisition time of a regular single pixel camera, and on the right we demonstrate three different configurations of time-resolved single pixel camera which operate significantly faster (requires 50x fewer masks).
+					</p>
+
+					<p>
+						<u><b>Ultrafast measurement:</b></u>
+						<br>
+						Since the pixel is time sensitive, light that is reflected from scene points close to the detector will arrive earlier compared to further points (as demonstrated in the animation below). This time-resolved information helps the reconstruction algorithm and as a result less compressive patterns are needed. <br>
+					</p>
+					<div id="center_img">
+						<img src="graphics/lightcone.gif" width="560" height=auto><br>
+						Space-time connection. A time-resolved single pixel measures events from sources in different positions at different times.
+					</div>
+
+					<p>
+						<u><b>Where to place the detector?</b></u>
+						<br>
+						We can use a single pixel or two or more pixels with this method to provide even more information.  It is important, however, to place them in the ideal location. In the paper we suggest an algorithm that maximizes the information from the detectors by placing them as far as possible from one another.
+					</p>
+
+					<p>
+						<u><b>Optimizing the compressive sensing patterns</b></u>
+						<br>
+						The last part of the framework are the compressive patterns. These patterns are used to compress information from the scene while taking the measurements. Traditionally the patterns are sampled from random distributions. However, in our case we can do better than random patterns by using the physics of the ultrafast measurement. In the paper we describe a methodology for optimizing the patterns so that fewer patterns are needed in order to achieve specific reconstruction quality.
+
+						Here are some results with a different number of sensors (K = 1 or 2 sensors) and time resolutions (T = 20 or 100 picosecond) with M = 50 patterns. We compare our approach to a regular single pixel camera with M = 50 or 2500 patterns.<br>
+						<br>
+					</p>
+					<div id="center_img">
+						<img src="result.jpg" width="700" height=auto><br>
+					</div>
+
+					<p>
+						<u><b>Paper Citation:</b></u><br>
+						&#8226; <a href="http://ieeexplore.ieee.org/document/7882664/" target="_blank">G. Satat, M. Tancik and R. Raskar, "Lensless Imaging with Compressive Ultrafast Sensing"</a>, <i>To appear: IEEE Trans. Computational Imaging</i> (2017).<br>
+						&#8226; <a href="https://doi.org/10.1109/TCI.2017.2684624" target="_blank" style="text-decoration: none"> doi: 10.1109/TCI.2017.2684624.</a><br>
+						&#8226; <a href="LenslessImagingwithCompressiveUltrafastSensing.pdf" target="_blank"> Local copy</a>
+					</p>
+
+					<p>
+						<u><b>Related Works:</b></u><br>
+						Our work is inspired by the single pixel camera, compressive sensing and time-resolved sensing. Compared to traditional single pixel cameras we use a time-resolved sensor - so that each detector readout is a vector encoding the spatial content of the scene (instead of a scalar in the traditional case). This time-resolved sensing is leveraged by a physics-based model of lensless imaging, and thus significantly reduce the number of required measurements. Time-resolved sensing has been suggested for lensless imaging, but without compressive sensing. Because we use compressive sensing, our approach works with only a single pixel. We also present tradeoffs and design criteria for a time-resolved measurement with compressive sensing in the context of lensless imaging. Many works addressed the problems of LIDAR (recover of scene geometry) with compressive sensing. Our work on the other hand aims to recover the scene reflectance. We envision combining recovery of scene geometry and reflectance with compressive ultra-fast sensing.
+					</p>
+
+					<p>
+						<u><b>Media Coverage:</b></u><br>
+						&#8226; <a href="http://news.mit.edu/2017/faster-single-pixel-camera-lensless-imaging-0330" target="_blank" style="text-decoration: none">MIT News</a><br>
+						&#8226; <a href="http://optics.org/news/8/4/41" target="_blank" style="text-decoration: none">Optics.org</a><br>						
+						&#8226; <a href="https://www.yahoo.com/tech/lensless-cameras-just-got-closer-162605494.html" target="_blank" style="text-decoration: none">Yahoo Digital Trends</a><br>
+						&#8226; <a href="http://www.imaging-resource.com/news/2017/04/04/mit-researchers-develop-new-technique-for-speeding-up-lensless-camera-tech" target="_blank" style="text-decoration: none">Imaging Resource</a><br>
+						&#8226; <a href="https://www.photonics.com/Article.aspx?AID=61893" target="_blank" style="text-decoration: none">Photonics.com</a><br>
+						&#8226; <a href="http://semiengineering.com/system-bits-april-4/" target="_blank" style="text-decoration: none">Semiconductor Engineering</a><br>
+						&#8226; <a href="http://www.indiatimes.com/lifestyle/technology/mit-researchers-are-perfecting-technology-that-could-one-day-give-you-cameras-without-lenses-274525.html" target="_blank" style="text-decoration: none">India Times</a><br>
+						&#8226; <a href="https://www.elektormagazine.com/news/fast-single-pixel-camera" target="_blank" style="text-decoration: none">Elektor</a><br>
+						&#8226; <a href="http://www.universityherald.com/articles/72121/20170407/lensless-reality.htm" target="_blank" style="text-decoration: none">University Herald</a><br>
+						&#8226; <a href="http://www.observer247.com/mit-scientists-working-tech-pave-way-cameras-without-lenses/" target="_blank" style="text-decoration: none">Observer 24/7</a><br>
+						&#8226; <a href="https://www.extremetech.com/extreme/246812-mit-speeds-futuristic-lensless-single-pixel-camera-50-times" target="_blank" style="text-decoration: none">Extreme Tech</a><br>
+
+
+						<!--&#8226; <a href="https://www.eurekalert.org/pub_releases/2017-03/miot-afs032917.php" target="_blank" style="text-decoration: none">EurekAlert!</a><br>
+						&#8226; <a href="http://www.business-standard.com/article/news-ani/now-a-faster-single-pixel-camera-117033000341_1.html" target="_blank" style="text-decoration: none">Business Standard</a><br>
+						&#8226; <a href="https://phys.org/news/2017-03-faster-single-pixel-camera-technique-greatly.html" target="_blank" style="text-decoration: none">Phys.org</a><br>
+						&#8226; <a href="https://scienceblog.com/493158/faster-single-pixel-camera/" target="_blank" style="text-decoration: none">ScienceBlog</a><br>
+						&#8226; <a href="https://www.ecnmag.com/news/2017/03/faster-single-pixel-camera-new-technique-greatly-reduces-number-exposures-necessary-lensless-imaging" target="_blank" style="text-decoration: none">ECN</a><br>
+						&#8226; <a href="http://www.parallelstate.com/news/a-faster-single-pixel-camera-new-technique-greatly-reduces-the-number-of-exposures-necessary-for-lensless-imaging/440834" target="_blank" style="text-decoration: none">Parallel State</a><br>
+						&#8226; <a href="https://checkthescience.com/news/1983084-a-faster-single-pixel-camera-new-technique-greatly-reduces-number-exposures-necessary-lensless-imaging" target="_blank" style="text-decoration: none">Check The Science</a><br>
+						&#8226; <a href="http://www.techspot.com/news/68765-weekend-tech-reading-april-fools-roundup-ethics-emulators.html" target="_blank" style="text-decoration: none">Tech Spot</a><br>
+						&#8226; <a href="https://mybroadband.co.za/news/gadgets/205320-a-faster-single-pixel-camera.html" target="_blank" style="text-decoration: none">My Broad Band</a><br>
+						&#8226; <a href="https://www.sciencedaily.com/releases/2017/03/170329182022.htm" target="_blank" style="text-decoration: none">Science Daily</a><br>
+						&#8226; <a href="http://www.hitechdays.com/browser/198757/" target="_blank" style="text-decoration: none">HiTech Days</a><br>
+						&#8226; <a href="http://latesttechnology.space/a-faster-single-pixel-camera/" target="_blank" style="text-decoration: none">Latest Technology</a><br> -->
+						<!--&#8226; <a href="" target="_blank" style="text-decoration: none"></a><br>		-->
+
+
+
+										<!--&#8226; <a href="https://www.reddit.com/r/science/comments/62d0jp/a_faster_singlepixel_camera_new_technique_greatly/" target="_blank" style="text-decoration: none">REDDIT</a><br>-->
+
+
+					</p>
+
+					<p id="FAQ">
+						<u><b>FAQ:</b></u>
+						<br><b>What is compressive sensing?</b><br>
+						<a href="https://en.wikipedia.org/wiki/Compressed_sensing" target="_blank">Compressive sensing</a> is a method that enables recovery of signal (or image, in our case) from a few measurements. During the acquisition process, the measurements compress information about the target signal. The signal is recovered with a computational reconstruction algorithm.
+
+						<br><br><b>What is the single pixel camera?</b><br>
+						<a href="http://dsp.rice.edu/">The single pixel camera</a> uses a single pixel that is measured multiple times. In each measurement the pixel sees the scene modulated with a different pattern (see next question). If the patterns are chosen correctly the number of required measurements is less than the number of scene pixels. These measurements are used to computationally reconstruct the original scene.
+
+						<br><br><b>What do you mean by compressive patterns?</b><br>
+						The measurement process with compressive sensing requires coding each measurement with a masks (or pattern). We call these masks compressive patterns.
+
+						<br><br><b>How is this work different from "regular" single pixel camera? How exactly does the time-resolved measurement help?</b><br>
+						The traditional approaches for single pixel cameras use a regular pixel (bucket detector) that simply collects light. Each compressive measurement is simply a single number (scalar). We suggest using a time-resolved pixel, such that each pixel measurement produces a vector that contains information in time. This can shorten the overall acquisition process.
+
+						<br><br><b>What are the potential applications?</b><br>
+						The single pixel camera concept essentially breaks the definition of a traditional camera. Specifically, a lens is no longer necessary and there is no need for a tight array of pixels. This can be useful for imaging in parts of the electromagnetic spectrum where it's hard to create sensors or lenses (like infrared or THz). This can also be useful in challenging imaging environments where it's impossible to use a lens.
+
+						<br><br><b>What are the main advantages of this method?</b><br>
+						1) It provides a design framework for lensless imaging. The original single pixel camera is just one design point. The framework allows the user to trade off parameters such as acquisition time, cost etc.
+						2) The introduction of time-resolved pixels to the single pixel framework enables shorter acquisition times. For example, in the paper we demonstrate one design point that requires 50x fewer compressive patterns (shorter acquisition time). This is demonstrated in the animation above.
+						3) With a time-resolved pixel we demonstrate a technique to optimize the compressive patterns and further reduce the acquisition time.
+
+						<br><br><b>What are some devices that enable time-resolved measurement?</b><br>
+						There are many optional devices like single photon avalanche diode (SPAD), SPAD array and streak camera.
+
+						<br><br><b>What are some of the limitations?</b><br>
+						Using a time-resolved sensor requires a pulsed laser source for illumination. As mentioned above, this is simply an alternative design point that is more expensive. However it allows significantly shorter acquisition time.
+
+						<br>
+					</p>
+
+					<p>
+						<u><b>Camera Culture Related Works :</b></u><br>
+						&#8226; <a href="http://web.media.mit.edu/~guysatat/API/project_all_photon.html" target="_blank" style="text-decoration: none">G. Satat, B. Heshmat, D. Raviv and R. Raskar,  “All Photons Imaging Through Volumetric Scattering”, <i>Nature Scientific Reports</i>, Vol. 6, 33946, (2016).</a><br>
+
+						&#8226; <a href="http://web.media.mit.edu/~barmak/THz%20Book.html" target="_blank" style="text-decoration: none">A. R. Sanchez, B. Heshmat, A. Aghasi, M. Zhang, S. Naqvi, J. Romberg, R. Raskar, “Terahertz time-gated spectroscopic imaging for content extraction through layered structures,” <i>Nature Communications</i>, Vol. 7, 12665, (2016).</a><br>
+
+						&#8226; <a href="http://web.media.mit.edu/~barmak/Brush%20Project.html" target="_blank" style="text-decoration: none">B. Heshmat, I. H. Lee, R. Raskar, "Optical brush: Imaging through permuted probes," Nature Scientific Reports, Vol. 6, 20217, (2016).</a><br>
+
+						&#8226; <a href="http://web.mit.edu/naik/www/assets/pdf/satat_etal_ultrafast_survey_16.pdf" target="_blank" style="text-decoration: none">G. Satat, B. Heshmat, N. Naik, A. R. Sanchez and R. Raskar, "Advances in ultrafast optics and imaging applications," in <i>SPIE 2016</i> (invited).</a><br>
+
+						&#8226; <a href="http://web.media.mit.edu/~guysatat/fl/Fluorescent/Locating%20and%20classifying%20fluorescent%20tags%20behind%20turbid%20layers%20using%20time-resolved%20inversion.pdf" target="_blank" style="text-decoration: none">G. Satat, B. Heshmat, C. Barsi, D. Raviv, O. Chen, M.G. Bawendi and R. Raskar,  “Locating and Classifying Fluorescent Tags Behind Turbid Layers Non-Invasively Using Sparsity-Based Time-Resolved Inversion,” <i>Nature Communications</i>, Vol. 6, 6796 (2015).</a><br>
+
+						&#8226; <a href="http://extremelight.eps.hw.ac.uk/publications/NC-photon-flight-Gariepy(2015).pdf" target="_blank" style="text-decoration: none">G. Gariepy, et al., "Single-photon sensitive light-in-fight imaging," <i>Nature Communications</i>, Vol. 6, 6021 (2015).</a><br>
+
+						&#8226; <a href="https://www.osapublishing.org/abstract.cfm?uri=cleo_si-2014-STu3E.7" target="_blank" style="text-decoration: none">B. Heshmat, G. Satat, C. Barsi, and R. Raskar, "Single-Shot Ultrafast Imaging Using Parallax-Free Alignment with a Tilted Lenslet Array," in <i>CLEO: 2014</i> (oral).</a><br>
+
+						&#8226; <a href="http://web.media.mit.edu/~raskar/femto/papers/3d/3DShapeAroundCornerRaskar2011.pdf" target="_blank" style="text-decoration: none">A. Velten, et al., "Recovering three-dimensional shape around a corner using ultrafast time-of-flight imaging," <i>Nature communications</i>, Vol. 3, 745 (2012).</a><br>
+
+					  &#8226; <a href="https://www.researchgate.net/profile/Andreas_Velten/publication/220721073_Slow_art_with_a_trillion_frames_per_second_camera/links/0912f50f02fb790150000000.pdf" target="_blank" style="text-decoration: none">A. Velten, et al., "Slow art with a trillion frames per second camera," <i>ACM SIGGRAPH 2011 Talks</i> ACM, (2011).</a><br>
+
+						&#8226; <a href="https://dspace.mit.edu/handle/1721.1/67888" target="_blank" style="text-decoration: none">R. Raskar, and D. James, "5d time-light transport matrix: What can we reason about scene properties," <i>Int. Memo</i> 7 (2008).</a><br>
+
+						&#8226; <a href="http://web.mit.edu/naik/www/assets/pdf/naik_sigasia_11.pdf" target="_blank" style="text-decoration: none">N. Naik, et al., "Single view reflectance capture using multiplexed scattering and time-of-flight imaging," <i>ACM Transactions on Graphics (ToG)</i>, Vol. 30. No. 6. ACM, (2011).</a><br>
+					</p>
+
+					<span style="margin-bottom: 0"><p><u><b>Related Talks:</b></u></p><span>
+
+					<div id="center_img">
+						<table width="700" border="0" id="relatedTable">
+							<tr>
+							  <td width="317"><span style="margin: 30px 0 0 0;"> X-ray vision without X-rays</span></td>
+							  <td width="317"><span style="margin: 30px 0 0 0;"> The future of imaging</span></td>
+							  <td width="356"><span style="margin: 15px 0 0 0;">Imaging at trillion frames per second</span></td>
+							</tr>
+							<tr>
+								<td><span style="margin: 15px 0 0 0;"><a href="https://www.youtube.com/watch?v=IJ2cMqQOOHM" target="_blank"><img src="xrayvision.png" alt="l" width="281" height="170"></a></span></td>
+
+							  <td><span style="margin: 15px 0 0 0;"><a href="https://www.youtube.com/watch?v=3h7gq-xuXLA" target="_blank"><img src="future_of_imaging.png" alt="l" width="281" height="170"></a></span></td>
+							  <td><span style="margin: 15px 0 0 0;"><a href="http://www.ted.com/talks/ramesh_raskar_a_camera_that_takes_one_trillion_frames_per_second?language=en" target="_blank"><img src="imaging-at-trillion-frames-per-second.jpg" alt="l" width="286" height="170"></a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</article>
+		</div>
+	</body>
+</html>
