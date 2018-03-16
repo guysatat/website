@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <title>Seeing Through Fog</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="og:title" content="Seeing Through Fog" />
+    <meta property="og:type"               content="website" />
+    <meta property="og:url"               content="https://media.mit.edu/~guysatat/fog/index.html" />
+    <meta property="og:description" content="Seeing through fog as if it wasn't there." />
+    <meta property="og:image" content="https://media.mit.edu/~guysatat/images/fog.jpg" />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+
+    <style>
+    	* { padding: 0; margin: 0; }
+    	canvas { background: #eee; display: block; margin: 0 auto; }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100|Roboto" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+
+	<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106666434-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-106666434-1');
+</script>
+
+</head>
+<body>
+
+<!---
+  <section id="text" class="wrapper">
+  		<nav id="nav">
+  			<ul class="container">
+  				<li><a href="../index.html#Top">Home</a></li>
+  				<li><a href="../index.html#News">News</a></li>
+  				<li><a href="../index.html#Projects">Projects</a></li>
+  				<li><a href="../index.html#About">About Me</a></li>
+  				<li><a href="../index.html#Publications">Publications</a></li>
+  				<li><a href="../index.html#Contact">Contact</a></li>
+  			</ul>
+  		</nav>
+  </section>
+  --->
+
+  <section id="text" class="wrapper">
+
+
+
+
+    <header class="major">
+
+      <a href="http://cameraculture.media.mit.edu" target="_blank"><img class="mlIcons" src="CameraCulture_Logo_R_RGB1.jpg" height="100"/></a>
+      <a href="http://media.mit.edu" target="_blank"><img class="mlIcons" src="MIT_ML_Logo_R_RGB1.jpg" height="100"/></a>
+
+
+      <h2>Towards Photography Through Realistic Fog</h2>
+      <h3>Seeing through dense fog as if it wasn't there</h3>
+    </header>
+    <header class="major">
+      <h4><a href="http://media.mit.edu/~guysatat/" target="_blank">Guy Satat</a>,
+        <a href="http://www.matthewtancik.com" target="_blank">Matthew Tancik</a>,
+        <a href="http://media.mit.edu/~raskar/" target="_blank">Ramesh Raskar</a></h4>
+    </header>
+
+
+    <div class="inner">
+      <section>
+            <p style="margin: 0 0 0em 0">
+              <b>A technique to see through dense, dynamic, and heterogeneous fog conditions. The technique, based on visible light, uses hardware that is similar to LIDAR and recovers the target depth and reflectance.</b><br>
+                Applications include:<ul>
+                    <li> Autonomous and augmented driving in challenging weather.
+                    <li> Airplanes and helicopters take off, landing and low level flight in dense fog conditions.
+                    <li> Trains traveling at normal speeds during inclement weather conditions.
+                </ul>
+              Other techniques to see through fog are usually based on longer wavelengths (like RF) and provide lower resolution and poor optical contrast (required to identify road lanes and road signs). Another alternative is based on time-gating that locks onto a small part of the unscattered signal, that result in poor signal-to-noise ratio and limits the applicability to moving platforms or high fog densities.<br>
+              The suggested approach is based on a probabilistic algorithm that separates between photons reflected from the fog (background) and those reflected form the target (signal). The estimated signal is used to recover the target depth and reflectance.<br>
+              The fog model supports a wide range of fog densities and is estimated from the measurement itself without prior knowledge. <br>
+
+              The algorithm is used independently on all camera pixels supporting heterogeneous and patchy fog. <br>
+
+              The motivation to use the background photons is similar to our <a href="https://www.media.mit.edu/~guysatat/API/project_all_photon.html">All Photons Imaging</a> work in which scattered light is measured and computationally used to robustly eliminate the scattering.
+
+            </p>
+
+      </section>
+
+
+      <section>
+        <p>
+          <h4><u>Overview:</u></h4>
+          The system hardware is very similar to <a href="https://en.wikipedia.org/wiki/Lidar/" target="_blank">LIDAR</a> and is composed of a SPAD camera (single photon avalanche diode) and a pulsed visible laser. The time-resolved measured photons are used to estimate the background (photons reflected from the fog). The background estimate is a probabilistic physics based model that helps to effectively subtract the fog from the measurement. The result is the signal from the target that is used to recover the target reflectance and depth.
+
+        </p>
+
+          <div class="8u 12u$(small)">
+          <span class="image fit" style="margin: 0.5em 0 1em 0; text-align: center">
+            <b>Algorithm overview</b><br>
+            <img src="graphics/overview.jpg" alt>
+          </span></div>
+
+    </section>
+
+
+
+
+
+    <section>
+    <p>
+      <h4><u>Fog Demonstration:</u></h4>
+      The experiments are conducted in a fog chamber. We use a fog generator with a fan to create and distribute fog inside the chamber. Each experiment starts with an empty chamber (no fog). Then the fog density slowly increases as fog is being added. We end the experiment when the visibility is less than 30 cm. To quantitatively evaluate the fog level we use optical thickness. An optical thickness of 0 means no fog, and higher values correspond to more fog. The videos below show some examples of the fog levels used and a photo of our experiment.
+
+      <div class="6u 12u$(small)">
+      <span class="image fit" style="margin: 0.5em 0 1em 0; text-align: center">
+        <b>Experimental Setup</b><br>
+        <img src="graphics/setup.jpg" alt>
+      </span></div>
+
+    </section>
+
+
+
+    <section>
+    <p>
+      <h4><u>Results:</u></h4>
+      Below we show several videos demonstrating the reconstruction of our approach and compare it to other techniques. The videos play as fog is being added to the fog chamber. On the left are other techniques including a regular camera (coupled with an independent flashlight), a SPAD camera integration (no time resolution), and time gating with the SPAD camera. On the right is our method demonstrating reflectance and depth recovery.
+    </p>
+    </section>
+
+
+
+    <section>
+    <p style="margin: 0 0 0em 0">
+      <h4><u>Paper Citation:</u></h4>
+      <ul>
+      <li> <a href="" target="_blank">G. Satat, M. Tancik and R. Raskar, "Towards Photography Through Realistic Fog"</a>, <i>IEEE International Conference on Computational Photography (ICCP)</i>, (2018).
+    <!--	&#8226; <a href="https://doi.org/10.1364/OE.25.017466" target="_blank" style="text-decoration: none"> doi:  10.1364/OE.25.017466.</a><br>-->
+      <li> <a href="TowardsPhotographyThroughRealisticFog.pdf" target="_blank"> Local copy</a>
+      <li> <a href="Supplemental_TowardsPhotographyThroughRealisticFog.pdf" target="_blank"> Supplement</a>
+      </ul>
+    </p>
+    </section>
+
+    <section>
+    <p style="margin: 0 0 0em 0">
+      <h4><u>Frequently Asked Questions:</u></h4>
+      <b>Q: What is a SPAD camera?</b><br>
+      A: SPAD (single photon avalanche diode) camera time tags individual photons as they are detected. Each pixel records one photon per laser pulse (our laser emits millions pulses per second), and our method requires only a few tens of thousands photons.
+      <br><br>
+
+      <b>Q: What are some applications?</b><br>
+      A: Augmenting a human driver and enabling self-driving cars to operate in challenging weather; allowing drones to navigate and follow targets in inclement weather; improving flight safety of airplanes and helicopters during takeoffs, landings and low-level flights in extreme weather; and allowing trains to travel faster in low visibility.
+      <br><br>
+
+      <b>Q: What are the main advantages of this method?</b><br>
+      A: There are several key advantages:<ul>
+      <li> Simplicity of the reconstruction algorithm allows it to run in real-time.
+      <li> The approach doesn't assume prior knowledge about the fog density, and it works with a wide range fog densities.
+      <li> The method is pixel-wise (each pixel estimates the fog properties and target independently), thus it naturally works with heterogeneous scenes and fog.
+      <li> The required hardware is similar to LIDAR that is commonly used in self-driving cars.
+      <li> Using visible light, it is possible to read road signs and detect lane markings.
+      </ul>
+
+      <b>Q: Why is visible light essential for imaging through fog (why not just RADAR)?</b><br>
+      A: Imaging in the visible part of the electromagnetic spectrum provides good resolution (short wavelength compared to RF), and good optical contrast (different materials appear very different under visible light). The latter is key to identifying road lane markings and reading road signs.
+      <br><br>
+
+      <b>Q: What do you mean by Realistic fog?</b><br>
+      A: Our experiments are conducted with a water-based fog generator combined with a fan. This results in fog with variable densities (no fog to very dense), that is moving (dynamic) and heterogeneous (patchy).
+      <br><br>
+
+      <b>Q: Is this a probabilistic framework? What does that mean?</b><br>
+      A: We develop a probabilistic framework to model scattered photons from fog. This model is estimated from the raw measurement and is used to answer the question "what is the probability that a photon was scattered from fog or target?".
+      <br><br>
+
+      <b>Q: How does the SPAD single photon sensitivity help?</b><br>
+      A: The single photon sensitivity helps us in the development of a probabilistic framework. Effectively for each detected photon we ask what is the probability that this photon reflected from the fog or target. Perhaps more importantly, the SPAD measurement noise is much better (less noise) when compared to traditional cameras.
+      <br><br>
+
+      <b>Q: How does the time-resolved sensing help?</b><br>
+      A: We want to know what is the probability that a photon was reflected from the fog or target. A more robust way to answer that is asking given the prior knowledge that the photon was measured at a specific time, what is the probability that it was reflected from the fog or target? Intuitively, more information (time in this case) helps making better estimates. In the paper we specifically show that the probabilities to measure a photon from target and fog are different as a function of time.
+      <br><br>
+
+      <b>Q: What is optical thickness?</b><br>
+      A: Optical thickness is a measure to level of scattering. If we want to measure optical thickness of fog at a given time point, we measure the light intensity at that time, and compare it the light intensity without fog. With higher fog densities, and light intensity drops due to the scattering. Optical thickness is a dimensionless quantity so it's easy to compare it to different experiments. See more <a href="https://en.wikipedia.org/wiki/Optical_depth" target="_blank">here</a>.
+      <br><br>
+
+      <b>Q: What are the main limitations of this method?</b><br>
+      A: Because the approach is pixel wise (each pixel operates independently) it ignores spatial blur that is induced by the fog. While this effect was very minor in our measurements it is possible that it would become more apparent in other scenarios. <br>
+      Another limitation is the acquisition time. While we can generate a new result with every new detected photon (100 microsec), we rely on recently detected photons. In our setup we used a history of 2sec, thus this limits the immediate application for a moving platform. We hope that stronger laser and better hardware would improve this.
+      <br><br>
+
+    </p>
+    </section>
+
+
+    <section>
+      <div class="4u 12u$(small)">
+      <span class="image fit" style="margin: 0.5em 0 1em 0; text-align: center">
+        <img src="graphics/fog_bath.jpg" alt>
+      </span></div>
+    </section>
+
+
+    <section>
+    <p style="margin: 0 0 0em 0">
+      <h4><u>Camera Culture Related Works :</u></h4><ul>
+
+     <li> <a href="../calib_inv/index.html" target="_blank"  style="text-decoration: none">
+        G. Satat, M. Tancik, O. Gupta, B. Heshmat and R. Raskar, "Object Classification through Scattering Media with Deep Learning on Time Resolved Measurement," <i>Optics Express</i> Vol. 25, 17466-17479 (2017).
+      </a>
+
+      <li> <a href="http://web.media.mit.edu/~guysatat/singlepixel" target="_blank" style="text-decoration: none"> G. Satat, M. Tancik and R. Raskar, "Lensless Imaging with Compressive Ultrafast Sensing", <i>IEEE Trans. Computational Imaging</i>, (2017).</a>
+
+      <li> <a href="http://web.media.mit.edu/~guysatat/API/project_all_photon.html" target="_blank" style="text-decoration: none">G. Satat, B. Heshmat, D. Raviv and R. Raskar,  “All Photons Imaging Through Volumetric Scattering”, <i>Nature Scientific Reports</i>, Vol. 6, 33946, (2016).</a>
+
+      <li> <a href="http://web.media.mit.edu/~barmak/Brush%20Project.html" target="_blank" style="text-decoration: none">B. Heshmat, I. H. Lee, R. Raskar, "Optical brush: Imaging through permuted probes," Nature Scientific Reports, Vol. 6, 20217, (2016).</a>
+
+      <li> <a href="http://web.mit.edu/naik/www/assets/pdf/satat_etal_ultrafast_survey_16.pdf" target="_blank" style="text-decoration: none">G. Satat, B. Heshmat, N. Naik, A. R. Sanchez and R. Raskar, "Advances in ultrafast optics and imaging applications," in <i>SPIE 2016</i> (invited).</a>
+
+      <li> <a href="http://web.media.mit.edu/~guysatat/fl/Fluorescent/Locating%20and%20classifying%20fluorescent%20tags%20behind%20turbid%20layers%20using%20time-resolved%20inversion.pdf" target="_blank" style="text-decoration: none">G. Satat, B. Heshmat, C. Barsi, D. Raviv, O. Chen, M.G. Bawendi and R. Raskar,  “Locating and Classifying Fluorescent Tags Behind Turbid Layers Non-Invasively Using Sparsity-Based Time-Resolved Inversion,” <i>Nature Communications</i>, Vol. 6, 6796 (2015).</a>
+
+      <li> <a href="http://extremelight.eps.hw.ac.uk/publications/NC-photon-flight-Gariepy(2015).pdf" target="_blank" style="text-decoration: none">G. Gariepy, et al., "Single-photon sensitive light-in-fight imaging," <i>Nature Communications</i>, Vol. 6, 6021 (2015).</a>
+
+      <li> <a href="https://www.osapublishing.org/abstract.cfm?uri=cleo_si-2014-STu3E.7" target="_blank" style="text-decoration: none">B. Heshmat, G. Satat, C. Barsi, and R. Raskar, "Single-Shot Ultrafast Imaging Using Parallax-Free Alignment with a Tilted Lenslet Array," in <i>CLEO: 2014</i> (oral).</a>
+
+     <li> <a href="http://web.media.mit.edu/~raskar/femto/papers/3d/3DShapeAroundCornerRaskar2011.pdf" target="_blank" style="text-decoration: none">A. Velten, et al., "Recovering three-dimensional shape around a corner using ultrafast time-of-flight imaging," <i>Nature communications</i>, Vol. 3, 745 (2012).</a>
+
+      <li> <a href="https://www.researchgate.net/profile/Andreas_Velten/publication/220721073_Slow_art_with_a_trillion_frames_per_second_camera/links/0912f50f02fb790150000000.pdf" target="_blank" style="text-decoration: none">A. Velten, et al., "Slow art with a trillion frames per second camera," <i>ACM SIGGRAPH 2011 Talks</i> ACM, (2011).</a>
+
+      <li> <a href="https://dspace.mit.edu/handle/1721.1/67888" target="_blank" style="text-decoration: none">R. Raskar, and D. James, "5d time-light transport matrix: What can we reason about scene properties," <i>Int. Memo</i> 7 (2008).</a>
+
+      </ul>
+
+    </p>
+    </section>
+
+
+
+
+    <section class="wrapper">
+    <p>
+      <h4><u>Camera Culture Related Talks :</u></h4>
+
+        <div class="row uniform">
+          <div class="6u 12u$(small)"><span class="image fit">
+            <a href="https://youtube.com/watch?v=uo-_2sau2SY" target="_blank">
+            Imaging for autonomous vehicles
+            <img src="autosens.jpg" alt="" />
+            </a>
+          </span></div>
+
+          <div class="6u 12u$(small)"><span class="image fit">
+            <a href="https://www.youtube.com/watch?v=IJ2cMqQOOHM" target="_blank">
+            Seeing Through...
+            <img src="xrayvision.jpg" alt="" />
+            </a>
+          </span></div>
+
+          <div class="6u 12u$(small)"><span class="image fit">
+            <a href="https://www.youtube.com/watch?v=3h7gq-xuXLA" target="_blank">
+            The future of imaging
+            <img src="future_of_imaging.png" alt="" />
+            </a>
+          </span></div>
+
+          <div class="6u 12u$(small)"><span class="image fit">
+            <a href="http://www.ted.com/talks/ramesh_raskar_a_camera_that_takes_one_trillion_frames_per_second?language=en" target="_blank">
+            Imaging at trillion frames per second
+            <img src="imaging-at-trillion-frames-per-second.jpg" alt="" />
+            </a>
+          </span></div>
+
+        </div>
+    </p>
+    </section>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer id="footer">
+  <p class="copyright">&copy; Guy Satat 2018. All rights reserved.  <br />   HTML template: <a href="http://html5up.net">HTML5 UP</a></p>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="assets/js/main.js"></script>
+
+
+</body>
+</html>
