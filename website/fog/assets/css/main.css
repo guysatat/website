@@ -1726,7 +1726,7 @@
 		}
 
 	h2 {
-		font-size: 1.75em;
+		font-size: 2em;
 		line-height: 1.5em;
 	}
 
@@ -4192,3 +4192,22 @@
 				border-right: solid 0.75em transparent;
 				border-top: solid 0.6em #282828;
 			}
+
+
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#scaleVid {
+  margin: 0 auto;
+}
